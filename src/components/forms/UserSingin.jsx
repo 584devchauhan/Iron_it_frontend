@@ -5,10 +5,10 @@ import "./../../Index.css";
 const UserSingin = () => {
   const handleSubmit = (prevData, formData) => {
     const error = {};
-    let name = formData.get("userName") || "";
-    let email = formData.get("email") || "";
-    let password = formData.get("password") || "";
-    let address = formData.get("address") || "";
+    let name = formData.get("userName") ;
+    let email = formData.get("email") ;
+    let password = formData.get("password");
+    let address = formData.get("address") ;
 
     if (name.length < 3 || name.length > 20) {
       error.name = "Invalid Name!";
@@ -93,7 +93,7 @@ const UserSingin = () => {
               placeholder="Enter Your Address"
             />
             <p className="text-red-700 -mt-5">{data?.error?.address}</p>
-            <button className="justify-center bg-blue-800 text-white font-bold mt-8  min-w-[400px] max-w-md min-h-[60px] rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:text-xl">
+            <button className="justify-center bg-blue-800 text-white font-bold mt-8  min-w-[400px] max-w-md    min-h-[60px] rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:text-xl">
               Sing in
             </button>
           </form>

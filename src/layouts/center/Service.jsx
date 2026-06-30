@@ -1,7 +1,6 @@
 import React from "react";
 import { products } from "../../data/data";
 import Cards from "../../components/cards/Cards";
-// import bgImage from "./../../../public/images/image3.jpg";
 import { useNavigate } from "react-router-dom";
 import BookNow from "../../components/buttons/BookNow";
 

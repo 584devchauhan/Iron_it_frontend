@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import logo from "../assets/logo.jpg"; // Adjust path if needed
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -54,7 +53,7 @@ const Navbar = () => {
               <div className="w-[180px]">
                 <input
                   type="search"
-                  className="w-full border-none hover:border-4 outline-none items-center py-1"
+                  className="w-full border-none  outline-none items-center py-1 "
                   placeholder="🔎Search...."
                 />
               </div>
@@ -63,13 +62,13 @@ const Navbar = () => {
 
               <button
                 onClick={handaleloginClick}
-                className="bg-blue-600 text-white px-8 h-[84px] hover:bg-blue-700"
+                className="bg-blue-600 text-white px-8 h-[84px] hover:bg-blue-950"
               >
                 Login
               </button>
               <button
                 onClick={handalesinginClick}
-                className="bg-blue-600 text-white px-8 h-[84px] hover:bg-blue-700"
+                className="bg-blue-600 text-white px-8 h-[84px] hover:bg-blue-950"
               >
                 Sign In
               </button>

@@ -1,6 +1,5 @@
 import React from "react";
 import AboutCard from "../../components/cards/AboutCard";
-// import bgImage from "./../../../public/images/about.jpg";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import BookNow from "../../components/buttons/BookNow";
 import GetPrimium from "../../components/buttons/GetPrimium";

@@ -1,4 +1,3 @@
-// import HandaleNav from "./Layouts/header/HandaleNav";
 import { Route, Router, Routes, useLocation } from "react-router-dom";
 import "./Index.css";
 import Header from "./Layouts/header/Header";
@@ -11,11 +10,18 @@ import About from "./layouts/center/About";
 import UserLogin from "./components/forms/UserLogin";
 import UserSingin from "./components/forms/UserSingin";
 import ContectUs from "./layouts/center/ContectUs";
+import { useEffect } from "react";
 
 function App() {
   const loction = useLocation();
 
-  const hideElement = ["/user_login", "/user_singin"];
+  useEffect(() => {
+    fetch("http://localhost:5000/")
+      .then((res) => res.text)
+      .then((data) => console.log(data));
+  }, []);
+
+  const hideElement = ["/user_login", "/user_singin","/book-now","/buy-primium"];
 
   return (
     <>
@@ -24,14 +30,12 @@ function App() {
         <Route path="/book-now" element={<BookNow />} />
         <Route path="/buy-primium" element={<BuyPrimium />} />
         <Route path="/learn-more" element={<BuyPrimium />} />
-       
-          <Route path="/" element={<Home />} />
-          <Route path="/service" element={<Service />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/user_login" element={<UserLogin />} />
-          <Route path="/user_singin" element={<UserSingin />} />
-          <Route path="/contact-us" element={<ContectUs />} />
-        
+        <Route path="/" element={<Home />} />
+        <Route path="/service" element={<Service />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/user_login" element={<UserLogin />} />
+        <Route path="/user_singin" element={<UserSingin />} />
+        <Route path="/contact-us" element={<ContectUs />} />
       </Routes>
 
       {/* Footer */}

@@ -1,5 +1,4 @@
 import React, { useActionState } from "react";
-// import bgImage from "./../../../public/images/form.jpg";
 import "./../../Index.css";
 
 const UserLogin = () => {
@@ -60,6 +59,7 @@ const UserLogin = () => {
                 defaultValue={data?.value?.email}
                 // onChange={handleChange}
                 name="email"
+                type="email"
                 placeholder="Enter your Email"
                 id="email"
               />
@@ -70,11 +70,11 @@ const UserLogin = () => {
                 defaultValue={data?.value?.password}
                 // onChange={handleChange}
                 name="password"
-                id="password"
+                type="password"
                 placeholder="Enetr Your Password"
               />
               <p className="  -mt-5  text-red-700">{data?.error?.password}</p>
-              <button className="justify-center bg-blue-800 text-white font-bold mt-8  min-w-[400px] max-w-md min-h-[60px] rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:text-xl">
+              <button className="justify-center bg-blue-800 text-white font-bold mt-8  min-w-[400px] max-w-md  min-h-[60px] rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:text-xl">
                 Log in
               </button>
             </form>

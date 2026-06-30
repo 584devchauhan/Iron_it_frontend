@@ -1,7 +1,6 @@
 import React from "react";
 import { products } from "../../data/data";
 import Cards from "../../components/cards/Cards";
-// import bgImage from "./../../../public/images/Image.jpg";
 import "./../../Index.css";
 import PickUpRequest from "../../components/forms/PickUpRequest";
 import GetPrimium from "../../components/buttons/GetPrimium";
