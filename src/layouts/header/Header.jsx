@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   const handalesinginClick = () => {
-    nav("/user_singin");
+    nav("/user_singup");
   };
   const handleLogo = () => {
     nav("/");
@@ -70,7 +70,7 @@ const Navbar = () => {
                 onClick={handalesinginClick}
                 className="bg-blue-600 text-white px-8 h-[84px] hover:bg-blue-950"
               >
-                Sign In
+                Sign Up
               </button>
             </div>
           </div>

@@ -46,7 +46,7 @@ const Footer = () => {
                   className="flex-1 h-12 px-4 border border-gray-300 rounded outline-none focus:border-blue-600"
                 />
 
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 rounded font-semibold transition">
+                <button className="bg-blue-600 hover:bg-blue-950 text-white px-8 rounded font-semibold transition">
                   Send
                 </button>
               </div>

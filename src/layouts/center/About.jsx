@@ -46,7 +46,7 @@ const About = () => {
 
       {/* second Card  */}
       <div className="relative z-10 max-w-[1280px] h-[700px] mx-auto px-6  py-20 ">
-        <div className="grid lg:grid-cols-2  items-start mb-10">
+        <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-0  items-start mb-10">
           <div>
             <p className="text-blue-600 font-semibold p-2">Why Choose Us</p>
 

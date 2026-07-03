@@ -8,7 +8,7 @@ import Home from "./layouts/center/Home";
 import Service from "./layouts/center/Service";
 import About from "./layouts/center/About";
 import UserLogin from "./components/forms/UserLogin";
-import UserSingin from "./components/forms/UserSingin";
+import UserSingin from "./components/forms/UserSingUp";
 import ContectUs from "./layouts/center/ContectUs";
 import { useEffect } from "react";
 
@@ -34,7 +34,7 @@ function App() {
         <Route path="/service" element={<Service />} />
         <Route path="/about" element={<About />} />
         <Route path="/user_login" element={<UserLogin />} />
-        <Route path="/user_singin" element={<UserSingin />} />
+        <Route path="/user_singup" element={<UserSingin />} />
         <Route path="/contact-us" element={<ContectUs />} />
       </Routes>
 

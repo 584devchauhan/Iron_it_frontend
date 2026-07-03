@@ -97,7 +97,7 @@ const ContectUs = () => {
               ></textarea>
             </div>
 
-            <button className="w-full bg-blue-600 text-white py-4 rounded hover:bg-blue-700">
+            <button className="w-full bg-blue-600 text-white py-4 rounded hover:bg-blue-950">
               Submit
             </button>
           </div>

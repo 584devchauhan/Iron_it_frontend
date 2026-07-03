@@ -8,9 +8,7 @@ const UserLogin = () => {
     let email = formData.get("email");
     let password = formData.get("password");
 
-    if (name.length < 3 || name.length > 10) {
-      error.name = "Invalide Name!";
-    } else if (email.length === 0) {
+     if (email.length === 0) {
       error.email = "Invalide email!";
     } else if (password.length === 0) {
       error.password = "Inavlide Password!";
@@ -44,14 +42,14 @@ const UserLogin = () => {
               <h1 className="text-blue-400 font-extrabold text-3xl nav-shadow">
                 UserLogin
               </h1>
-              <input
+              {/* <input
                 className="input2 "
                 defaultValue={data?.value?.name}
                 // onChange={handleChange}
                 name="userName"
                 placeholder="Enter Your Name"
                 id="userName"
-              />
+              /> */}
               <p className="  -mt-5  text-red-700">{data?.error?.name}</p>
 
               <input

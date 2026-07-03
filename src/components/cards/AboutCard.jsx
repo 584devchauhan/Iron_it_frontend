@@ -8,7 +8,7 @@ const AboutCard = () => {
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  ">
         <div className="about-card">
-          <FcHome className="icon nav-shadow"/>
+          <FcHome className="icon nav-shadow" />
           <h3 className="heading">We-Collect</h3>
           <p className="p ">Collect your order from your location </p>
         </div>
