@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const BookNow = () => {
+const BookNowButton = () => {
   const nav = useNavigate();
   const handleBookNow = (e) => {
     nav("/book-now");
@@ -18,4 +18,4 @@ const BookNow = () => {
   );
 };
 
-export default BookNow;
+export default BookNowButton;

@@ -3,10 +3,12 @@ import { products } from "../../data/data";
 import Cards from "../../components/cards/Cards";
 import { useNavigate } from "react-router-dom";
 import BookNow from "../../components/buttons/BookNow";
+// import Header from "../header/Header"
 
 const Service = () => {
   return (
     <>
+    {/* <Header /> */}
       <div className="bg-white relative h-[1250px] overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center "

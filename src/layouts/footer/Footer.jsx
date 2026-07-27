@@ -1,22 +1,28 @@
 import React from "react";
 import Company from "./Company";
 import WorkDetailsCard from "../../components/cards/WorkDetailsCard";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const nav = useNavigate();
+
+  const handleClick = () => {
+    nav("/");
+  };
   return (
     <>
       {/* <div className="border-4 border-red-800"> */}
-        <div className="relative h-[950px] flex justify-center items-center  overflow-hidden">
-          <div className="absolute inset-0 bg-gray-400/40" />
+      <div className="relative h-[950px] flex justify-center items-center  overflow-hidden">
+        <div className="absolute inset-0 bg-gray-400/40" />
 
-          <div className="relative h-full">
-            <WorkDetailsCard />
-          </div>
+        <div className="relative h-full">
+          <WorkDetailsCard />
         </div>
+      </div>
 
-        <div className="bg-[#032B56]">
-          <div className="relative z-20 max-w-[1280px] mx-auto -translate-y-24 px-6">
-            <div className="bg-white rounded-md shadow-xl grid md:grid-cols-2">
+      <div className="bg-[#032B56]">
+        <div className="relative z-20 max-w-[1280px] mx-auto -translate-y-24 px-6">
+          <div className="bg-white rounded-md shadow-xl grid md:grid-cols-2">
             <div className="p-12 border-r border-gray-200">
               <h2 className="text-4xl font-bold text-[#032B56] mb-3">
                 Need Help?
@@ -55,9 +61,9 @@ const Footer = () => {
         </div>
 
         <div className="text-white pt-16 pb-12">
-            <div className="max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+          <div className="max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
             {/* Logo */}
-            <div>
+            <div onClick={handleClick}>
               <div className="flex items-center gap-3 mb-6">
                 <img
                   src="images/logo.jpg"
@@ -79,7 +85,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        </div>
+      </div>
       {/* </div> */}
     </>
   );

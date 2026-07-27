@@ -50,10 +50,10 @@ const Navbar = () => {
 
             {/* Search  */}
             <div className="ml-auto flex items-center  gap-5">
-              <div className="w-[180px]">
+              <div className="w-[180px] border-blue-300 hover:border  ">
                 <input
                   type="search"
-                  className="w-full border-none  outline-none items-center py-1 "
+                  className="w-full border-none   outline-none items-center py-1 "
                   placeholder="🔎Search...."
                 />
               </div>

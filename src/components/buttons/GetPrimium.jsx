@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const GetPrimium = () => {
+const GetPrimiumButton = () => {
   const nav = useNavigate();
   const handleGetPrimium = () => {
     nav("/buy-primium");
@@ -18,4 +18,4 @@ const GetPrimium = () => {
   );
 };
 
-export default GetPrimium;
+export default GetPrimiumButton;

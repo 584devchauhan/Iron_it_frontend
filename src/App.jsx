@@ -1,6 +1,5 @@
 import { Route, Router, Routes, useLocation } from "react-router-dom";
 import "./Index.css";
-import Header from "./Layouts/header/Header";
 import BookNow from "./components/forms/BookNow";
 import BuyPrimium from "./components/forms/BuyPrimium";
 import Footer from "./Layouts/footer/Footer";
@@ -8,34 +7,54 @@ import Home from "./layouts/center/Home";
 import Service from "./layouts/center/Service";
 import About from "./layouts/center/About";
 import UserLogin from "./components/forms/UserLogin";
-import UserSingin from "./components/forms/UserSingUp";
 import ContectUs from "./layouts/center/ContectUs";
 import { useEffect } from "react";
+import axios from "axios";
+import UserSingUp from "./components/forms/UserSingUp";
+import LogOut from "./components/buttons/LogOut";
+import UserHome from "./pages/auth/UserHome";
+import ProtectedRoutes from "./assets/ProtectedRoutes";
+import PublicRoutes from "./assets/PublicRoutes";
+import GetPrimium from "./pages/GetPrimium";
 
 function App() {
-  const loction = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
-    fetch("http://localhost:5000/")
-      .then((res) => res.text)
-      .then((data) => console.log(data));
+    axios.get("http://localhost:5000/").then((res) => {
+      console.log("connected");
+      // console.log(data);
+    });
   }, []);
 
-  const hideElement = ["/user_login", "/user_singin","/book-now","/buy-primium"];
+  const hideElement = [
+    "/user_login",
+    "/user_singup",
+    "/book-now",
+    "/buy-primium",
+  ];
 
   return (
     <>
-      <Header />
       <Routes>
-        <Route path="/book-now" element={<BookNow />} />
-        <Route path="/buy-primium" element={<BuyPrimium />} />
-        <Route path="/learn-more" element={<BuyPrimium />} />
+        <Route path="/logout" element={<LogOut />} />
+        <Route path="/logout" element={<LogOut />} />
+        <Route path="/user_login" element={<UserLogin />} />
+        <Route path="/user_singup" element={<UserSingUp />} />
+        {/* <Route element={<PublicRoutes />}> */}
         <Route path="/" element={<Home />} />
         <Route path="/service" element={<Service />} />
         <Route path="/about" element={<About />} />
-        <Route path="/user_login" element={<UserLogin />} />
-        <Route path="/user_singup" element={<UserSingin />} />
         <Route path="/contact-us" element={<ContectUs />} />
+        {/* </Route> */}
+
+        {/* Protecte Routes  */}
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/buy-primium" element={<GetPrimium />} />
+          <Route path="/learn-more" element={<BuyPrimium />} />
+          <Route path="/book-now" element={<BookNow />} />
+          <Route path="/user" element={<UserHome />} />
+        </Route>
       </Routes>
 
       {/* Footer */}

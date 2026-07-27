@@ -12,7 +12,7 @@ const Cards = ({ image, title, description, onClick }) => {
       className="relative bg-white p-10 shadow-lg hover:shadow-2xl transition-all duration-300 text-center group overflow-hidden"
     >
       {/* Hover Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-950 to-blue-400 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
       {/* Content */}
       <div className="relative z-10 ">

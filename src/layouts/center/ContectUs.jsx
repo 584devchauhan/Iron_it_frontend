@@ -1,9 +1,10 @@
 import React from "react";
+// import Header from "../header/Header"
 
 const ContectUs = () => {
   return (
     <>
-    
+    {/* <Header /> */}
       <div className="relative h-[420px] overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"

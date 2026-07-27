@@ -1,106 +1,149 @@
-import React, { useActionState } from "react";
-import bgImage from "./../../../public/images/form.jpg";
+import React, { useState } from "react";
 import "./../../Index.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Header from "../../layouts/header/Header";
 
-const UserSingin = () => {
-  const handleSubmit = (prevData, formData) => {
-    const error = {};
-    let name = formData.get("userName") ;
-    let email = formData.get("email") ;
-    let password = formData.get("password");
-    let address = formData.get("address") ;
+const UserSingUp = () => {
+  const nav = useNavigate();
 
-    if (name.length < 3 || name.length > 20) {
-      error.name = "Invalid Name!";
-    } else if (email.length === 0) {
-      error.email = "Invalid email!";
-    } else if (password.length === 0) {
-      error.password = "Invalid password!";
-    } else if (address.length === 0) {
-      error.address = "Invalid address!";
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [address, setAddress] = useState("");
+
+  const [error, setError] = useState({});
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const errors = {};
+
+    if (name.trim().length < 3 || name.trim().length > 20) {
+      errors.name = "Name must be between 3 and 20 characters.";
     }
-    if (Object.keys(error).length > 0) {
-      return { error, value: { name, email, password, address } };
+
+    if (!email.trim()) {
+      errors.email = "Email is required.";
     }
-    return {
-      message: "Success",
-      value: { name: "", email: "", password: "", address: "" },
-    };
+
+    if (!password.trim()) {
+      errors.password = "Password is required.";
+    }
+
+    if (!address.trim()) {
+      errors.address = "Address is required.";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setError(errors);
+      return;
+    }
+
+    setError({});
+
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/auth/api/register",
+        {
+          name,
+          email,
+          password,
+          address,
+        },
+        {
+          withCredentials: true,
+        },
+      );
+
+      alert(res.data.message);
+
+      setName("");
+      setEmail("");
+      setPassword("");
+      setAddress("");
+
+      nav("/user");
+    } catch (err) {
+      console.log(err);
+
+      alert(err.response?.data?.message || "Registration failed");
+    }
   };
-  // const handleChange = (e) => {
-  //   console.log(e.target.value);
-  // };
-
-  const [data, action, pending] = useActionState(handleSubmit);
 
   return (
-    <div className="bg-gray-300 w-full overflow-hidden">
-      <div className="relative mx-auto origin-center min-h-[945px] shadow-md overflow-hidden hover:shadow-xl transition-all   ">
-        <div
-          className="absolute inset-0 bg-cover bg-center "
-          style={{ backgroundImage: `url(${"images/form2.jpg"})` }}
-        />
-        <div className="absolute inset-0 bg-cover p-40 bg-black/70"></div>
+    <>
+      <Header />
+      <div className="bg-gray-300 w-full overflow-hidden">
+        <div className="relative mx-auto origin-center min-h-[945px] shadow-md overflow-hidden hover:shadow-xl transition-all">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url("images/form2.jpg")` }}
+          />
 
-        <div className="relative  max-w-[800px] px-6 md:px-10 lg:px-12 py-10 mx-auto ">
-          <form
-            action={action}
-            // onSubmit={handleSubmit}
-            className="grid grid-cols-1  h-auto mx-auto p-25 gap-5 mt-30   justify-items-center bg-white/90 rounded-2xl shadow-black"
-          >
-            <h1 className="text-blue-400 font-extrabold text-3xl nav-shadow">
-              UserSingin
-            </h1>
-            <input
-              className="input2 "
-              defaultValue={data?.value?.name}
-              // onChange={handleChange}
-              type="text"
-              name="userName"
-              placeholder="Enter Your Name"
-              id="userName"
-            />
-            <p className="text-red-700 -mt-5 ">{data?.error?.name}</p>
-            <input
-              className="input2 "
-              defaultValue={data?.value?.email}
-              // onChange={handleChange}
-              type="email"
-              name="email"
-              placeholder="Enter your Email"
-              id="email"
-            />
-            <p className="text-red-700 -mt-5">{data?.error?.email}</p>
+          <div className="absolute inset-0 bg-cover p-40 bg-black/70"></div>
 
-            <input
-              className="input2 "
-              defaultValue={data?.value?.password}
-              // onChange={handleChange}
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Enetr Your Password"
-            />
-            <p className="text-red-700 -mt-5">{data?.error?.password}</p>
+          <div className="relative max-w-[800px] px-6 md:px-10 lg:px-12 py-10 mx-auto">
+            <form
+              onSubmit={handleSubmit}
+              className="grid grid-cols-1 h-auto mx-auto p-25 gap-5 mt-30 justify-items-center bg-white/90 rounded-2xl shadow-black"
+            >
+              <h1 className="text-blue-400 font-extrabold text-3xl nav-shadow">
+                User Signup
+              </h1>
 
-            <input
-              className="input2 "
-              defaultValue={data?.value?.address}
-              type="address"
-              // onChange={handleChange}
-              name="address"
-              id="address"
-              placeholder="Enter Your Address"
-            />
-            <p className="text-red-700 -mt-5">{data?.error?.address}</p>
-            <button className="justify-center bg-blue-800 text-white font-bold mt-8  min-w-[400px] max-w-md    min-h-[60px] rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:text-xl">
-              Sing in
-            </button>
-          </form>
+              <input
+                className="input2"
+                type="text"
+                name="name"
+                placeholder="Enter Your Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <p className="text-red-700 -mt-5">{error.name}</p>
+
+              <input
+                className="input2"
+                type="email"
+                name="email"
+                placeholder="Enter Your Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <p className="text-red-700 -mt-5">{error.email}</p>
+
+              <input
+                className="input2"
+                type="password"
+                name="password"
+                placeholder="Enter Your Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <p className="text-red-700 -mt-5">{error.password}</p>
+
+              <input
+                className="input2"
+                type="text"
+                name="address"
+                placeholder="Enter Your Address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
+              <p className="text-red-700 -mt-5">{error.address}</p>
+
+              <button
+                type="submit"
+                className="justify-center bg-blue-800 text-white font-bold mt-8 min-w-[400px] max-w-md min-h-[60px] rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:text-xl"
+              >
+                Sign Up
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default UserSingin;
+export default UserSingUp;

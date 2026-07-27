@@ -3,13 +3,16 @@ import { products } from "../../data/data";
 import Cards from "../../components/cards/Cards";
 import "./../../Index.css";
 import PickUpRequest from "../../components/forms/PickUpRequest";
-import GetPrimium from "../../components/buttons/GetPrimium";
+// import GetPrimium from "../../components/buttons/GetPrimium";
 import Service from "./Service";
 import { useNavigate } from "react-router-dom";
 import About from "./About";
 import ContectUs from "./ContectUs";
-import BookNow from "../../components/buttons/BookNow";
+import Header from "../header/Header";
+// import BookNow from "../../components/buttons/BookNow";
 import CosutmerFeedBack from "../../components/cosutmerFeedBack";
+import GetPrimiumButton from "../../components/buttons/GetPrimium";
+import BookNowButton from "../../components/buttons/BookNow";
 
 const Home = () => {
   const nav = useNavigate();
@@ -18,6 +21,7 @@ const Home = () => {
   };
   return (
     <>
+      <Header />
       <div className="relative w-full h-[900px]  overflow-hidden  ">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -72,7 +76,7 @@ const Home = () => {
                 Get Premium Care for your Premium <br /> Clothes
               </p>
               <div className="">
-                <GetPrimium />
+                <GetPrimiumButton />
               </div>
             </div>
           </div>
@@ -120,7 +124,7 @@ const Home = () => {
               </p>
 
               <div className="mt-10 flex justify-center items-center py-4 w-[200px]  rounded-xl font-bold bg-white text-blue-900  hover:bg-blue-950 hover:text-white hover:text-2xl transition-all duration-200 ">
-                <BookNow />
+                <BookNowButton />
               </div>
             </div>
           </div>

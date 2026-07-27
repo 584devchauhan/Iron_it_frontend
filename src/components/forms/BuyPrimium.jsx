@@ -3,8 +3,8 @@ import React from "react";
 const BuyPrimium = () => {
   return (
     <div>
-      <h1>Buy Primium</h1>
-    </div>
+      
+    </div>  
   );
 };
 
