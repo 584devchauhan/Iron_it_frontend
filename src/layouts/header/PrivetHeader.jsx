@@ -6,6 +6,7 @@ const navLinks = [
   
   { label: "Get Primium", to: "/buy-primium" },
   { label: "Order Now", to: "/book-now" },
+  { label: "My Orders", to: "/my-orders" },
 
 ];
 
@@ -38,7 +39,7 @@ const PrivetHeader = () => {
               </div>
 
               {/* Links  */}
-              <div className="grid lg:grid-cols-2 md:grid-cols-2 justify-items-end pl-50 ">
+              <div className="grid lg:grid-cols-2 md:grid-cols-2 justify-items-end  pl-50 ">
               <nav className="flex pt-7  gap-8 text-[#032B56] text-[16px] font-medium">
                 {navLinks.map((link) => (
                   <Link

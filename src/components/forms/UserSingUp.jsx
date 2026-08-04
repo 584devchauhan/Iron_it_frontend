@@ -19,25 +19,26 @@ const UserSingUp = () => {
 
     const errors = {};
 
+    if (!name.trim()) {
+      return setError({ name: "Name is required." });
+    }
+
     if (name.trim().length < 3 || name.trim().length > 20) {
-      errors.name = "Name must be between 3 and 20 characters.";
+      return setError({
+        name: "Name must be between 3 and 20 characters.",
+      });
     }
 
     if (!email.trim()) {
-      errors.email = "Email is required.";
+      return setError({ email: "Email is required." });
     }
 
     if (!password.trim()) {
-      errors.password = "Password is required.";
+      return setError({ password: "Password is required." });
     }
 
     if (!address.trim()) {
-      errors.address = "Address is required.";
-    }
-
-    if (Object.keys(errors).length > 0) {
-      setError(errors);
-      return;
+      return setError({ address: "Address is required." });
     }
 
     setError({});

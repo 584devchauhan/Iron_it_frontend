@@ -16,9 +16,13 @@ import UserHome from "./pages/auth/UserHome";
 import ProtectedRoutes from "./assets/ProtectedRoutes";
 import PublicRoutes from "./assets/PublicRoutes";
 import GetPrimium from "./pages/GetPrimium";
+import socket from "./socket";
+import { useAuth } from "./context/AuthContext";
+import MyOrders from "./pages/MyOrders";
 
 function App() {
   const location = useLocation();
+  const { user } = useAuth();
 
   useEffect(() => {
     axios.get("http://localhost:5000/").then((res) => {
@@ -27,11 +31,28 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    socket.on("connect", () => {
+      console.log("Connected:", socket.id);
+      if (user && user._id) {
+        socket.emit("registerUser", user._id);
+      }
+    });
+
+    if (user && user._id && socket.connected) {
+      socket.emit("registerUser", user._id);
+    }
+
+    return () => {
+      socket.off("connect");
+    };
+  }, [user]);
   const hideElement = [
     "/user_login",
     "/user_singup",
     "/book-now",
     "/buy-primium",
+    "/my-orders",
   ];
 
   return (
@@ -53,6 +74,7 @@ function App() {
           <Route path="/buy-primium" element={<GetPrimium />} />
           <Route path="/learn-more" element={<BuyPrimium />} />
           <Route path="/book-now" element={<BookNow />} />
+          <Route path="/my-orders" element={<MyOrders />} />
           <Route path="/user" element={<UserHome />} />
         </Route>
       </Routes>

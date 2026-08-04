@@ -2,13 +2,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Cards = ({ image, title, description, onClick }) => {
-  const nav = useNavigate();
-  const handleLearnMore = () => {
-    nav("/learn-more");
-  };
+  // const nav = useNavigate();
+  // const handleLearnMore = () => {
+  //   nav("/learn-more");
+  // };
   return (
     <div
-      onClick={handleLearnMore}
+      // onClick={handleLearnMore}
       className="relative bg-white p-10 shadow-lg hover:shadow-2xl transition-all duration-300 text-center group overflow-hidden"
     >
       {/* Hover Overlay */}
@@ -26,12 +26,12 @@ const Cards = ({ image, title, description, onClick }) => {
           {description}
         </p>
 
-        <button
+        {/* <button
           onClick={handleLearnMore}
           className="text-blue-600 font-semibold group-hover:text-white transition-colors duration-300"
         >
           Learn More
-        </button>
+        </button> */}
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./../../Index.css";
 import { useAuth } from "../../context/AuthContext";
-import Header from "../../layouts/header/Header"
+import Header from "../../layouts/header/Header";
 
 const UserLogin = () => {
   const nav = useNavigate();
@@ -25,11 +25,11 @@ const UserLogin = () => {
     const newErrors = {};
 
     if (!email.trim()) {
-      newErrors.email = "Email is required";
+      return setErrors({ email: "Email is required" });
     }
 
     if (!password.trim()) {
-      newErrors.password = "Password is required";
+      return setErrors({ password: "Password is required" });
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -66,7 +66,7 @@ const UserLogin = () => {
 
   return (
     <>
-    <Header />
+      <Header />
       <div className="bg-gray-300 w-full overflow-hidden">
         <div className="relative mx-auto min-h-[950px] overflow-hidden">
           <div
