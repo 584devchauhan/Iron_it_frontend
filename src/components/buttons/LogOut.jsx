@@ -20,7 +20,7 @@ const LogOut = () => {
     <>
       <div
         onClick={handleLogout}
-        className="bg-blue-950 text-white text-xl p-6 font-semibold  px-8 h-[84px] hover:bg-gray-700"
+        className="bg-blue-950 text-white text-xl  p-6 font-semibold  px-8 h-[84px] hover:bg-gray-700"
       >
         <button className="text-gray-200">Log Out</button>
       </div>

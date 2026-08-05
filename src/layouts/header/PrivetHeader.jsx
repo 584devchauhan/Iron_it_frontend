@@ -30,7 +30,7 @@ const PrivetHeader = () => {
           <div className="fixed z-30 min-w-full bg-white shadow-sm items-center">
             <div className="max-w-[1280px] mx-auto h-[84px] flex items-center px-7">
               {/* logo  */}
-              <div onClick={handleLogo} className=" mr-50">
+              <div onClick={handleLogo} className=" mr-60">
                 <img
                   src={`${"images/logo1.jpg"}`}
                   alt="Cleanox Logo"
@@ -39,8 +39,8 @@ const PrivetHeader = () => {
               </div>
 
               {/* Links  */}
-              <div className="grid lg:grid-cols-2 md:grid-cols-2 justify-items-end  pl-50 ">
-              <nav className="flex pt-7  gap-8 text-[#032B56] text-[16px] font-medium">
+              <div className="grid lg:grid-cols-2 pl-30 md:grid-cols-2 justify-items-end w-[800px]    ">
+              <nav className="flex pt-7  gap-8 justify-items-end text-[#032B56] text-[16px] font-medium">
                 {navLinks.map((link) => (
                   <Link
                     key={link.to}
@@ -53,14 +53,14 @@ const PrivetHeader = () => {
               </nav>
 
               {/* Search  */}
-              <div className="  flex justify-items-center ">
-                <div className="w-[180px] pt-4 p-4 border-blue-300  overflow-hidden ">
+              {/* <div className="  flex justify-items-end "> */}
+                {/* <div className="w-[180px] pt-4 p-4 border-blue-300  overflow-hidden ">
                   <input
                     type="search"
                     className="w-full border-none   outline-none items-center p "
                     placeholder="🔎Search...."
                   />
-                </div>
+                </div> */}
 
                 {/* Buttons  */}
 
@@ -73,7 +73,7 @@ const PrivetHeader = () => {
                 >
                   getPrimeum
                 </button> */}
-              </div>
+              {/* </div> */}
             </div>
           </div></div>
         </header>

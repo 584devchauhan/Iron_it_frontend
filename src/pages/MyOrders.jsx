@@ -37,6 +37,8 @@ const MyOrders = () => {
             withCredentials: true,
           },
         );
+        console.log(res.data.orders);
+
         setOrders(res.data.orders || []);
       } catch (err) {
         console.error("Error fetching orders:", err);
